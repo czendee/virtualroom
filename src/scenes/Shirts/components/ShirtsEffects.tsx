@@ -57,7 +57,7 @@ const ShirtsEffects = (props: ShirtsEffectsProps) => {
 
       let newFreq = (freq - MIN) / (MAX - MIN);
       newFreq = MathUtils.clamp(newFreq, 0, 1);
-      newFreq = MathUtils.lerp(0.5, 0.92, newFreq * newFreq);
+      newFreq = MathUtils.lerp(0.5, 0.88, newFreq * newFreq);
 
       // @ts-ignore
       afterImagePass.current.uniforms["damp"].value = newFreq;

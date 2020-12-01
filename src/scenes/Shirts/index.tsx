@@ -12,7 +12,7 @@ import ShirtsEffects from "./components/ShirtsEffects";
 import SHIRT_SONGS from "./assets/songs";
 import { getSong, MusicManager } from "./services/musicManager";
 import { useRouter } from "next/router";
-import { PortalEnvironment, Logo, InfinitePlane } from "spacesvr";
+import { PortalEnvironment, Logo, InfinitePlane, Fog } from "spacesvr";
 import Credits from "./components/Credits";
 import { buildShirtPortal } from "./services/shirtPortal";
 import ShirtsMusic from "./components/ShirtsMusic";
@@ -27,6 +27,7 @@ const Shirts = () => {
 
   return (
     <PortalEnvironment
+      portalId={id as string}
       portalHandler={buildShirtPortal}
       children2d={<Credits useMusicStore={useMusicStore} />}
     >

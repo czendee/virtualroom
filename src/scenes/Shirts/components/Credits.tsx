@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { MusicStoreHook } from "scenes/Shirts/stores/music";
 import { getOpenIndex } from "../services/musicManager";
-import { useEnvironment } from "spacesvr";
+import { usePortalEnvironment } from "spacesvr";
 
 const Container = styled.div<{ open: boolean }>`
   position: absolute;
   z-index: 50;
   width: 100%;
   height: 100%;
+  left: 0;
+  top: 0;
   background: white;
   pointer-events: none;
   display: flex;
@@ -40,7 +42,7 @@ type CreditProps = {
 const Credits = (props: CreditProps) => {
   const { useMusicStore } = props;
 
-  const { paused, portal } = useEnvironment();
+  const { paused, portal } = usePortalEnvironment();
   const name = (portal && portal.firstName) || "❤";
   const [counter, setCounter] = useState(0);
   const [message, setMessage] = useState<string>();
@@ -96,7 +98,9 @@ const Credits = (props: CreditProps) => {
     if (event && event.open && event.open !== open) {
       setOpen(event.open);
     }
-  }, [eventIndex]);
+  }, [eventIndex, open]);
+
+  console.log(open);
 
   return (
     <Container open={open}>
