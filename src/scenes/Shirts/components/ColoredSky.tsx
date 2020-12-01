@@ -1,6 +1,6 @@
 import { Sky } from "@react-three/drei";
 import * as THREE from "three";
-import { Fog, usePortalEnvironment } from "spacesvr";
+import { usePortalEnvironment } from "spacesvr";
 import { COLORS } from "../assets/colors";
 
 const ColoredSky = () => {
