@@ -2,8 +2,7 @@ import { Suspense, useMemo } from "react";
 import { MusicStoreHook } from "scenes/Shirts/stores/music";
 import ReactivePrimitive from "scenes/Shirts/components/ReactivePrimitive";
 import HypedAsset from "../modifiers/HypedAsset";
-import { Video } from "spacesvr/components";
-import { useEnvironment } from "spacesvr/core/";
+import { useEnvironment, Video } from "spacesvr";
 
 type ShirtsAssetsProps = {
   useMusicStore: MusicStoreHook;

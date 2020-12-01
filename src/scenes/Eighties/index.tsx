@@ -1,7 +1,6 @@
-import { Logo } from "spacesvr/components/";
+import { StandardEnvironment, Logo } from "spacesvr";
 import { useAnalytics } from "services/analytics";
 import Grid from "./components/Grid";
-import { StandardEnvironment } from "spacesvr/core";
 
 const Eighties = () => {
   useAnalytics();
