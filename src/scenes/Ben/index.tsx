@@ -1,6 +1,5 @@
 import { useMemo } from "react";
-import { InfinitePlane, Logo, Background } from "@spacesvr/components";
-import { StandardEnvironment } from "@spacesvr/core";
+import { StandardEnvironment, InfinitePlane, Logo, Background } from "spacesvr";
 
 import { useAnalytics } from "services/analytics";
 import Balloons from "./components/Balloons";

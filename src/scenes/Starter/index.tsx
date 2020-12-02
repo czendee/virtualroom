@@ -1,6 +1,5 @@
 import { useAnalytics } from "services/analytics";
-import { StandardEnvironment } from "@spacesvr/core";
-import { Background, Logo } from "@spacesvr/components";
+import { StandardEnvironment, Background, Logo } from "spacesvr";
 import { Vector3 } from "three";
 
 const Starter = () => {

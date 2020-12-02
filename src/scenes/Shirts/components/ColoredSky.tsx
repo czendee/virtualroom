@@ -1,10 +1,10 @@
 import { Sky } from "@react-three/drei";
 import * as THREE from "three";
-import { useEnvironment } from "@spacesvr/core";
+import { usePortalEnvironment } from "spacesvr";
 import { COLORS } from "../assets/colors";
 
 const ColoredSky = () => {
-  const { portal } = useEnvironment();
+  const { portal } = usePortalEnvironment();
   const color = COLORS[Math.abs(portal?.seed) % COLORS.length];
 
   return (

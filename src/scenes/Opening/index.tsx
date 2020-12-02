@@ -1,6 +1,5 @@
 import { Suspense, useState } from "react";
-import { Logo, HDRI, Audio } from "@spacesvr/components";
-import { StandardEnvironment } from "@spacesvr/core";
+import { StandardEnvironment, Logo, HDRI, Audio } from "spacesvr";
 
 import SpacesGallery from "scenes/Opening/models/SpacesGallery";
 import SpacesPlaques from "scenes/Opening/models/SpacesPlaques";
@@ -13,6 +12,7 @@ import HectorRoom from "./components/rooms/HectorRoom";
 import JustinRoom from "./components/rooms/JustinRoom";
 import SantiRoom from "./components/rooms/SantiRoom";
 import { Vector3, WebGLRenderer } from "three";
+import { Stats } from "@react-three/drei";
 
 const Opening = () => {
   const [renderer, setRenderer] = useState<WebGLRenderer>();
@@ -38,6 +38,7 @@ const Opening = () => {
       }}
       player={{ pos: INIT_POS, rot: INIT_ROT }}
     >
+      <Stats />
       <HDRI src="https://d27rt3a60hh1lx.cloudfront.net/images/hdriuno.hdr" />
       <RobertRoom />
       <HectorRoom />
