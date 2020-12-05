@@ -1,6 +1,7 @@
 import { useAnalytics } from "services/analytics";
 import { StandardEnvironment, Background, Logo } from "spacesvr";
 import { Vector3 } from "three";
+import Test from "./models/test00";
 
 const Starter = () => {
   useAnalytics();
@@ -9,10 +10,11 @@ const Starter = () => {
 
   return (
     <StandardEnvironment player={{ pos: INITIAL_POSITION }}>
-      <Background color={0x000000} />
+      <Background color={0xacacac} />
       <ambientLight intensity={1} />
       <pointLight intensity={1} position={[0, 10, 0]} />
       <Logo floating rotating />
+      <Test />
     </StandardEnvironment>
   );
 };
