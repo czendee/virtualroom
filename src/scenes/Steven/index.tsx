@@ -1,7 +1,8 @@
 import { useAnalytics } from "services/analytics";
-import { StandardEnvironment, Background, Logo } from "spacesvr";
+import { StandardEnvironment, Background, Fog } from "spacesvr";
 import { Vector3 } from "three";
-import Test from "./models/test00";
+import DisplacementMap from "./components/DisplacementMap";
+import * as THREE from "three";
 
 const Starter = () => {
   useAnalytics();
@@ -10,11 +11,11 @@ const Starter = () => {
 
   return (
     <StandardEnvironment player={{ pos: INITIAL_POSITION }}>
-      <Background color={0xacacac} />
+      <Background color={0x000000} />
       <ambientLight intensity={1} />
       <pointLight intensity={1} position={[0, 10, 0]} />
-      <Logo floating rotating />
-      <Test />
+      <DisplacementMap />
+      <Fog color={new THREE.Color(0x000000)} near={10} far={100} />
     </StandardEnvironment>
   );
 };
