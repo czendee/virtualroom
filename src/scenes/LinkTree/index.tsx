@@ -14,7 +14,7 @@ type WorldProps = {
   linkData: {
     link: string;
     desc: string;
-    asset: string;
+    src: string;
   }[];
   floorColor?: string;
   sunPos?: number;
@@ -119,7 +119,7 @@ const World = (props: WorldProps) => {
           <ambientLight intensity={0.2} />
           <pointLight position={[0, 10, 0]} intensity={0.5} castShadow />
           <pointLight position={[-15, 10, 20]} intensity={0.5} castShadow />
-          <Links links={linkData} />
+
           <group>
             <mesh position={[0, -1, 0]}>
               <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />

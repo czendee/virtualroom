@@ -8,32 +8,32 @@ const linkData = [
   {
     link: "https://www.spotify.com/us/",
     desc: "Spotify (1)",
-    asset: "",
+    src: "/assets/gradient2.jpg",
   },
   {
     link: "https://www.youtube.com/",
     desc: "YouTube (2)",
-    asset: "",
+    src: "/assets/gradient2.jpg",
   },
   {
     link: "https://www.apple.com/apple-music/",
     desc: "Apple Music (3)",
-    asset: "",
+    src: "/assets/gradient2.jpg",
   },
   {
     link: "https://www.apple.com/apple-music/",
     desc: "Link 4",
-    asset: "",
+    src: "/assets/gradient2.jpg",
   },
   {
     link: "https://www.apple.com/apple-music/",
     desc: "Link 5",
-    asset: "",
+    src: "/assets/gradient2.jpg",
   },
   {
     link: "https://www.apple.com/apple-music/",
     desc: "Link 6",
-    asset: "",
+    src: "/assets/gradient2.jpg",
   },
 ];
 
