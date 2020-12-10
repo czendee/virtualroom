@@ -12,7 +12,7 @@ const DisplacementMap = (props: JSX.IntrinsicElements["group"]) => {
 
   return (
     <group {...props}>
-      <group position-y={-30} scale={[5, 5, 5]}>
+      <group position-z={15} scale={[5, 5, 5]}>
         <mesh rotation-x={-Math.PI / 2} receiveShadow>
           <planeBufferGeometry
             args={[INNER_RADIUS * 2, INNER_RADIUS * 2, 500, 500]}
