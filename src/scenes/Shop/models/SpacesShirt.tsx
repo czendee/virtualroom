@@ -7,6 +7,7 @@ import { Dispatch, SetStateAction, useCallback, useRef } from "react";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { isMobile } from "react-device-detect";
 import { useGLTF } from "@react-three/drei";
+import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -29,7 +30,7 @@ export default function SpacesShirt(props: ShirtProps) {
   const { overlay, setOverlay } = props;
 
   const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
+  const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
   const onClick = useCallback(() => {
     setOverlay(!overlay);
@@ -56,4 +57,4 @@ export default function SpacesShirt(props: ShirtProps) {
   );
 }
 
-useGLTF.preload(FILE_URL);
+useGLTF.preload(FILE_URL, DRACO_URL);

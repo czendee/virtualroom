@@ -1388,6 +1388,23 @@
   resolved "https://registry.yarnpkg.com/@react-three/cannon/-/cannon-0.5.3.tgz#b1849bf240629b4293155b4e611bf4417b44281c"
   integrity sha512-/Ak6AcY4KfBMSnqOxQ2drQZVXDAAwfnUi2/PxPepz9tSAl6GC5o7H5WnDRJqXClRcw8n4Q+Dm9uSl8L5mvV96A==
 
+"@react-three/drei@^2.2.10":
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-2.2.10.tgz#cf2ab0603fa64510f99bd75bbbf585eff011444a"
+  integrity sha512-Nc+tk10LuYF1BS3MPUbC6174dPf9RCCpo8UqTRumLQkZbeDcFPXYPhh4q/ThR9qos5uhl1obrx13ka6qofJC5Q==
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+    "@react-spring/web" "^9.0.0-rc.3"
+    detect-gpu "^3.0.0"
+    glsl-noise "^0.0.0"
+    lodash.omit "^4.5.0"
+    lodash.pick "^4.4.0"
+    react-merge-refs "^1.0.0"
+    stats.js "^0.17.0"
+    troika-three-text "^0.34.2"
+    utility-types "^3.10.0"
+    zustand "^3.0.3"
+
 "@react-three/drei@^2.2.2":
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-2.2.2.tgz#0ccc3aea9fbfca85d7861355cafc10d7fc2fa627"
@@ -3241,6 +3258,13 @@ detect-gpu@^1.5.1:
   integrity sha512-Ws//qvt0Kv9uXli1xJbC4jvrJdm+KonOMBjkTkICy4Ko+6qIggOXaF567o4kpapsX+pqW9FXmxh4IIAmqB+q7Q==
   dependencies:
     detect-ua "^1.0.2"
+
+detect-gpu@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/detect-gpu/-/detect-gpu-3.0.0.tgz#d1ced721581c27fec29e24aee8c3eadf45450b5a"
+  integrity sha512-D/uxvKWDqhy7XoHHdC7By1Bzxuv0t8OwccsiW1DbRPsqOr0rTAjxdO//bSck6QS54jc9QHbaQoRczAy5KbCOCQ==
+  dependencies:
+    webgl-constants "^1.1.1"
 
 detect-ua@^1.0.2:
   version "1.0.2"
@@ -7478,15 +7502,15 @@ source-map@^0.5.0, source-map@^0.5.6, source-map@^0.5.7:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
-spacesvr@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/spacesvr/-/spacesvr-1.2.2.tgz#57685709b8381542d6fc7471c18efbaa1bd5da59"
-  integrity sha512-Xlwfa9eX3HWCXGf8IqKNV5ga7kT4FQXB+GZ2YZUfAmgOgs/QPCchibwMO7GgD4h1a84GNLyb5dFZsMciSJ3nkw==
+spacesvr@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/spacesvr/-/spacesvr-1.2.8.tgz#b58e340eb3eb7981e22acd3e150d0f5669f14d6c"
+  integrity sha512-/69Yjn23geOJW1lD1Aqnm1JYF6saGLFbQTnSzFz0tBeiD2YvuNwIjN9mHm1t2oZTI7I0ntf2MS4hQj4WkKyksA==
   dependencies:
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"
     "@react-three/cannon" "^0.5.3"
-    "@react-three/drei" "^2.2.2"
+    "@react-three/drei" "^2.2.10"
     "@react-three/postprocessing" "^1.4.1"
     "@react-three/xr" "^1.1.0"
     "@types/node-fetch" "^2.5.7"
@@ -8037,6 +8061,14 @@ troika-three-text@^0.34.0:
     troika-three-utils "^0.34.0"
     troika-worker-utils "^0.34.1"
 
+troika-three-text@^0.34.2:
+  version "0.34.2"
+  resolved "https://registry.yarnpkg.com/troika-three-text/-/troika-three-text-0.34.2.tgz#5de211ba9f4378047eac6b3c3fe1e68bb761f86c"
+  integrity sha512-2YNZjI1TJXDrSz3JvQEW4GXJ6/Zlca+On0rbPyqGvcKYZTXzHkUd7a/wBIBicP9Ca/W+V0E+BVLvsoZEXjqTfg==
+  dependencies:
+    troika-three-utils "^0.34.0"
+    troika-worker-utils "^0.34.1"
+
 troika-three-utils@^0.34.0:
   version "0.34.0"
   resolved "https://registry.yarnpkg.com/troika-three-utils/-/troika-three-utils-0.34.0.tgz#9c34b31e8f6fd978af4be21382b7a21108ffd3e6"
@@ -8399,6 +8431,11 @@ web-vitals@0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-0.2.1.tgz#60782fa690243fe35613759a0c26431f57ba7b2d"
   integrity sha512-2pdRlp6gJpOCg0oMMqwFF0axjk5D9WInc09RSYtqFgPXQ15+YKNQ7YnBBEqAL5jvmfH9WvoXDMb8DHwux7pIew==
+
+webgl-constants@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/webgl-constants/-/webgl-constants-1.1.1.tgz#f9633ee87fea56647a60b9ce735cbdfb891c6855"
+  integrity sha512-LkBXKjU5r9vAW7Gcu3T5u+5cvSvh5WwINdr0C+9jpzVB41cjQAP5ePArDtk/WHYdVj0GefCgM73BA7FlIiNtdg==
 
 webidl-conversions@^4.0.2:
   version "4.0.2"
