@@ -6,14 +6,14 @@ import * as THREE from "three";
 type LinkProps = {
   link: string;
   position: Vector3 | [number, number, number];
-  rotY: number;
+  rotY?: number;
   text?: string;
   color?: string;
   font?: string;
 };
 
 const Link = (props: LinkProps) => {
-  const { link, position, rotY, text = "", color = "white", font } = props;
+  const { link, position, rotY = 0, text = "", color = "white", font } = props;
   const [matcap] = useMatcapTexture("6D1616_E6CDBA_DE2B24_230F0F");
   const handleClick = () => {
     window.open(link);

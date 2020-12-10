@@ -9,28 +9,67 @@ type LinksProps = {
   }[];
   color?: string;
   font?: string;
-  radius: number;
 };
 
 const linkArr: any = [];
-let offset = 0;
 
 const Links = (props: LinksProps) => {
-  const { links, color, font, radius = 5 } = props;
+  const { links, color, font } = props;
 
-  for (const link of links) {
-    linkArr.push(
-      <Link
-        position={[Math.cos(offset) * radius, 0, Math.sin(offset) * radius]}
-        rotY={Math.PI / 2 - offset + Math.PI}
-        text={link.desc}
-        color={color}
-        font={font}
-        link={link.link}
-      />
-    );
-    offset += (2 * Math.PI) / links.length;
-  }
+  // linkArr.push(
+  //   <Link
+  //     position={[]}
+  //     text={links[0].desc}
+  //     color={color}
+  //     font={font}
+  //     link={links[0].link}
+  //   />
+  // );
+  // linkArr.push(
+  //   <Link
+  //     position={[]}
+  //     text={links[1].desc}
+  //     color={color}
+  //     font={font}
+  //     link={links[1].link}
+  //   />
+  // );
+  // linkArr.push(
+  //   <Link
+  //     position={[]}
+  //     text={links[2].desc}
+  //     color={color}
+  //     font={font}
+  //     link={links[2].link}
+  //   />
+  // );
+  // linkArr.push(
+  //   <Link
+  //     position={[]}
+  //     text={links[3].desc}
+  //     color={color}
+  //     font={font}
+  //     link={links[3].link}
+  //   />
+  // );
+  // linkArr.push(
+  //   <Link
+  //     position={[]}
+  //     text={links[4].desc}
+  //     color={color}
+  //     font={font}
+  //     link={links[4].link}
+  //   />
+  // );
+  // linkArr.push(
+  //   <Link
+  //     position={[]}
+  //     text={links[5].desc}
+  //     color={color}
+  //     font={font}
+  //     link={links[5].link}
+  //   />
+  // );
 
   return <>{linkArr}</>;
 };

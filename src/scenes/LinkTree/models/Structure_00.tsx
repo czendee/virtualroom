@@ -41,6 +41,8 @@ const FILE_URL =
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
+  materials["glass.mat"].metalness = 1;
+  materials["glass.mat"].roughness = 0;
   return (
     <group ref={group} {...props} dispose={null}>
       <group>

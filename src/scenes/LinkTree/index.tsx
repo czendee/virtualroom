@@ -1,4 +1,4 @@
-import { StandardEnvironment, KeyframeEnvironment, Fog } from "spacesvr";
+import { StandardEnvironment, KeyframeEnvironment, Fog, Image } from "spacesvr";
 import { Vector3 } from "three";
 import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
@@ -89,7 +89,7 @@ const World = (props: WorldProps) => {
           <pointLight position={[0, 10, 0]} intensity={0.75} castShadow />
           {/*<Links links={linkData} color={textColor} font={font} radius={radius}/>*/}
           {/*<mesh position={[0, -1, 0]}>*/}
-          {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
+          {/*  <boxBufferGeometry attach="geometry" args={[10, 10, 10]} />*/}
           {/*  <meshStandardMaterial attach="material" color="yellow" />*/}
           {/*</mesh>*/}
           <Suspense fallback={null}>
@@ -100,7 +100,7 @@ const World = (props: WorldProps) => {
               hScale={hMapScale}
               xzScale={xzMapScale}
             />
-            <Space scale={20} />
+            <Space scale={20} linkData={linkData} />
           </Suspense>
         </KeyframeEnvironment>
       ) : (
@@ -117,12 +117,31 @@ const World = (props: WorldProps) => {
             <></>
           )}
           <ambientLight intensity={0.2} />
-          <pointLight position={[0, 10, 0]} intensity={0.75} castShadow />
+          <pointLight position={[0, 10, 0]} intensity={0.5} castShadow />
+          <pointLight position={[-15, 10, 20]} intensity={0.5} castShadow />
           {/*<Links links={linkData} color={textColor} font={font} radius={radius}/>*/}
-          {/*<mesh position={[0, -1, 0]}>*/}
-          {/*  <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />*/}
-          {/*  <meshStandardMaterial attach="material" color="yellow" />*/}
-          {/*</mesh>*/}
+          <group>
+            <mesh position={[0, -1, 0]}>
+              <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />
+              <meshStandardMaterial attach="material" color="white" />
+            </mesh>
+            <mesh position={[7, -1, 0]}>
+              <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />
+              <meshStandardMaterial attach="material" color="red" />
+            </mesh>
+            <mesh position={[-7, -1, 0]}>
+              <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />
+              <meshStandardMaterial attach="material" color="yellow" />
+            </mesh>
+            <mesh position={[0, -1, 7]}>
+              <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />
+              <meshStandardMaterial attach="material" color="green" />
+            </mesh>
+            <mesh position={[0, -1, -7]}>
+              <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />
+              <meshStandardMaterial attach="material" color="blue" />
+            </mesh>
+          </group>
           <Suspense fallback={null}>
             <Scene
               position={scenePos}
@@ -131,8 +150,56 @@ const World = (props: WorldProps) => {
               hScale={hMapScale}
               xzScale={xzMapScale}
             />
-            <Space scale={20} />
+            <Space scale={20} linkData={linkData} />
           </Suspense>
+          <Image
+            position={[-5.5, 3, 1]}
+            rotation-y={Math.PI / 2}
+            src="/assets/city.jpg"
+            ratio={[300, 300]}
+            sizeScale={10}
+            framed
+          />
+          <Image
+            position={[-6.5, 3, 1]}
+            rotation-y={-Math.PI / 2}
+            src="/assets/city.jpg"
+            ratio={[300, 300]}
+            sizeScale={10}
+            framed
+          />
+          <Image
+            position={[-5.5, 3, 17]}
+            rotation-y={Math.PI / 2}
+            src="/assets/city.jpg"
+            ratio={[300, 300]}
+            sizeScale={10}
+            framed
+          />
+          <Image
+            position={[-6.5, 3, 17]}
+            rotation-y={-Math.PI / 2}
+            src="/assets/city.jpg"
+            ratio={[300, 300]}
+            sizeScale={10}
+            framed
+          />
+          <Image
+            position={[-5.5, 3, 33]}
+            rotation-y={Math.PI / 2}
+            src="/assets/city.jpg"
+            ratio={[300, 300]}
+            sizeScale={10}
+            framed
+          />
+          <Image
+            position={[-6.5, 3, 33]}
+            rotation-y={-Math.PI / 2}
+            src="/assets/city.jpg"
+            ratio={[300, 300]}
+            sizeScale={10}
+            framed
+          />
         </StandardEnvironment>
       )}
     </>

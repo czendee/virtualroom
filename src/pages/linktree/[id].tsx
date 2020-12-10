@@ -35,16 +35,6 @@ const linkData = [
     desc: "Link 6",
     asset: "",
   },
-  {
-    link: "https://www.apple.com/apple-music/",
-    desc: "Link 7",
-    asset: "",
-  },
-  {
-    link: "https://www.apple.com/apple-music/",
-    desc: "Link 8",
-    asset: "",
-  },
 ];
 
 const LinkTree: NextPage = () => {
