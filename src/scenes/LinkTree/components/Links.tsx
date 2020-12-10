@@ -7,7 +7,6 @@ type LinksProps = {
     desc: string;
     src: string;
   }[];
-  offset: number;
   color?: string;
   font?: string;
 };
@@ -15,7 +14,7 @@ type LinksProps = {
 const linkArr: any = [];
 
 const Links = (props: LinksProps) => {
-  const { links, color, font, offset } = props;
+  const { links, color, font } = props;
 
   linkArr.push(
     <Link

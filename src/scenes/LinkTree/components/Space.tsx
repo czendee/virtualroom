@@ -18,7 +18,7 @@ const Space = (props: SpaceProps) => {
   return (
     <group scale={[scale, scale, scale]} position={position}>
       <Structure_00 />
-      <Links links={linkData} offset={scale} />
+      <Links links={linkData} />
       <Text
         text="Muse"
         rotation={[0, -Math.PI / 2, 0]}
