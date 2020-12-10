@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 const Shop = dynamic(import("scenes/Shop"), { ssr: false });
 
-const ShopPage: NextPage = () => {
+const ArtistPage: NextPage = () => {
   return (
     <>
       <Head>
@@ -19,4 +19,4 @@ const ShopPage: NextPage = () => {
   );
 };
 
-export default ShopPage;
+export default ArtistPage;
