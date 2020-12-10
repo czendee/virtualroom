@@ -36,6 +36,7 @@ const Opening = () => {
           setRenderer(props.gl);
         },
       }}
+      physicsProps={{ defaultContactMaterial: { restitution: 0.3 } }}
       player={{ pos: INIT_POS, rot: INIT_ROT }}
     >
       <Stats />

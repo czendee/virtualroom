@@ -9,6 +9,7 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { BufferGeometry } from "three";
 import { useConvexPolyhedron } from "@react-three/cannon";
 import { useGLTF } from "@react-three/drei";
+import { DRACO_URL } from "spacesvr/services/constants";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -28,7 +29,7 @@ const FILE_URL =
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
+  const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
   materials["Gallery_cut"].metalness = 0.3;
   materials["Gallery_cut"].refractionRatio = 0.5;
@@ -86,4 +87,4 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload(FILE_URL);
+useGLTF.preload(FILE_URL, DRACO_URL);

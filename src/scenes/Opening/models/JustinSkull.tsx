@@ -9,6 +9,7 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 import { Color } from "three";
 import { useGLTF } from "@react-three/drei";
+import { DRACO_URL } from "spacesvr/services/constants";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -25,7 +26,7 @@ const FILE_URL =
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const mesh = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
+  const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
   materials.SKULL.color = new Color(0x4a4a4a);
   materials.SKULL.metalness = 1;
@@ -51,4 +52,4 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload(FILE_URL);
+useGLTF.preload(FILE_URL, DRACO_URL);

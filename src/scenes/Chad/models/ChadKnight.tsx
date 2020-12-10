@@ -9,6 +9,7 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 import { Color } from "three";
 import { useGLTF } from "@react-three/drei";
+import { DRACO_URL } from "spacesvr/services/constants";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -32,7 +33,7 @@ export default function Model(props: ChadProps) {
   const { color = "#28FA92", pieceScale, rotate } = props;
 
   const group = useRef<THREE.Group>();
-  const { nodes } = useGLTF(FILE_URL) as GLTFResult;
+  const { nodes } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
   const realColor = new Color(color);
 
   const wireMaterialProps = {
@@ -123,4 +124,4 @@ export default function Model(props: ChadProps) {
   );
 }
 
-useGLTF.preload(FILE_URL);
+useGLTF.preload(FILE_URL, DRACO_URL);
