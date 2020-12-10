@@ -1,12 +1,12 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { DirectionalLight, SpotLight } from "three";
+import { COLORS } from "../assets/colors";
+import { usePortalEnvironment } from "spacesvr";
 
-type LightingProps = {
-  color: any;
-};
+const ShirtsLighting = () => {
+  const { portal } = usePortalEnvironment();
+  const color = COLORS[Math.abs(portal?.seed) % COLORS.length];
 
-const ShirtsLighting = (props: LightingProps) => {
-  const { color } = props;
   const light = useMemo(() => new SpotLight(), []);
   const lightArgs = {
     distance: 12,

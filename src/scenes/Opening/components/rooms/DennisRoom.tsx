@@ -1,15 +1,6 @@
-import React from "react";
-import Image from "@spacesvr/components/Image";
-import Video from "@spacesvr/components/Video";
-import { EnvironmentStoreHook } from "@spacesvr/core/stores/environment";
+import { Image, Video } from "spacesvr";
 
-type DennisProps = {
-  useEnvStore: EnvironmentStoreHook;
-};
-
-const DennisRoom = (props: DennisProps) => {
-  const { useEnvStore } = props;
-
+const DennisRoom = () => {
   return (
     <group rotation={[0, (Math.PI * 4) / 3, 0]}>
       <group position={[0, 5.2, -45]}>
@@ -34,7 +25,6 @@ const DennisRoom = (props: DennisProps) => {
           ratio={[730, 782]}
           sizeScale={5}
           position={[0, 0, -4]}
-          useEnvStore={useEnvStore}
           muted
           framed
         />

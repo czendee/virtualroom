@@ -1,7 +1,5 @@
-import React from "react";
-import Image from "@spacesvr/components/Image";
+import { Image } from "spacesvr";
 import RobertPlaque from "scenes/Opening/components/RobertPlaque";
-import { EnvironmentStoreHook } from "@spacesvr/core/stores/environment";
 
 const RobertRoom = () => {
   return (

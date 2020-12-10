@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import { EnvironmentStoreHook } from "@spacesvr/core/stores/environment";
+import { useEffect, useRef, useState } from "react";
 import { default as THREE, Group, WebGLRenderer } from "three";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import Room from "./room";
 import { useFrame, useThree } from "react-three-fiber";
 import { useGLTF } from "@react-three/drei";
+import { DRACO_URL } from "spacesvr";
 
 type SantiProps = {
-  useEnvStore: EnvironmentStoreHook;
   renderer: WebGLRenderer | undefined;
 };
 
@@ -43,7 +42,7 @@ const SantiRoom = (props: SantiProps) => {
   const { scene } = useThree();
   const [added, setAdded] = useState(false);
 
-  const gltf = useGLTF(FILE_URL) as GLTFResult;
+  const gltf = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
 
   useEffect(() => {
     if (gltf && renderer && !room.current) {
@@ -80,4 +79,4 @@ const SantiRoom = (props: SantiProps) => {
 
 export default SantiRoom;
 
-useGLTF.preload(FILE_URL);
+useGLTF.preload(FILE_URL, DRACO_URL);

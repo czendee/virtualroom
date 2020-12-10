@@ -5,6 +5,8 @@
  *
  * @param portalResult
  */
+import { Asset, Portal } from "spacesvr";
+
 export const buildShirtPortal = (portalResult: Portal): Portal => {
   const { firstName, instagram } = portalResult;
 

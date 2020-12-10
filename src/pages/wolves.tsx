@@ -1,14 +1,7 @@
-import React from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
-const Environment = dynamic(
-  import("@spacesvr/core/environments/PlayerEnvironment"),
-  {
-    ssr: false,
-  }
-);
 const Wolves = dynamic(import("scenes/Wolves"), { ssr: false });
 
 const WolvesPage: NextPage = () => {
@@ -21,7 +14,7 @@ const WolvesPage: NextPage = () => {
           rel="stylesheet"
         />
       </Head>
-      <Environment scene={Wolves} title="Wolves" />
+      <Wolves />
     </>
   );
 };
