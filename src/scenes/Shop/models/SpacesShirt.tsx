@@ -7,7 +7,7 @@ import { Dispatch, SetStateAction, useCallback, useRef } from "react";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { isMobile } from "react-device-detect";
 import { useGLTF } from "@react-three/drei";
-import { DRACO_URL } from "spacesvr/services/constants";
+import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {

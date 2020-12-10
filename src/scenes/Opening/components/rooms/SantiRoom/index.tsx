@@ -4,7 +4,7 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import Room from "./room";
 import { useFrame, useThree } from "react-three-fiber";
 import { useGLTF } from "@react-three/drei";
-import { DRACO_URL } from "spacesvr/services/constants";
+import { DRACO_URL } from "spacesvr";
 
 type SantiProps = {
   renderer: WebGLRenderer | undefined;

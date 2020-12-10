@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { useGLTF } from "@react-three/drei/useGLTF";
 
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { DRACO_URL } from "spacesvr/services/constants";
+import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {

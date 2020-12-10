@@ -7,7 +7,7 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import * as THREE from "three";
 import { useTrimeshCollision } from "spacesvr";
 import { BufferGeometry } from "three";
-import { DRACO_URL } from "spacesvr/services/constants";
+import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
