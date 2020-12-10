@@ -22,10 +22,10 @@ const Scene = (props: SceneProps) => {
     hScale = 10,
     xzScale = 1000,
   } = props;
-  const mountain = useLoader(THREE.TextureLoader, "../assets/TERRAIN-2.jpg");
-  const valley = useLoader(THREE.TextureLoader, "../assets/valley.jpg");
-  const canyon = useLoader(THREE.TextureLoader, "../assets/canyon.jpg");
-  const city = useLoader(THREE.TextureLoader, "../assets/city.jpg");
+  const mountain = useLoader(THREE.TextureLoader, "/assets/TERRAIN-2.jpg");
+  const valley = useLoader(THREE.TextureLoader, "/assets/valley.jpg");
+  const canyon = useLoader(THREE.TextureLoader, "/assets/canyon.jpg");
+  const city = useLoader(THREE.TextureLoader, "/assets/city.jpg");
   const emissiveMap = useLoader(THREE.TextureLoader, "../assets/gradient2.jpg");
 
   return (
