@@ -119,7 +119,7 @@ const World = (props: WorldProps) => {
           <ambientLight intensity={0.2} />
           <pointLight position={[0, 10, 0]} intensity={0.5} castShadow />
           <pointLight position={[-15, 10, 20]} intensity={0.5} castShadow />
-          {/*<Links links={linkData} color={textColor} font={font} radius={radius}/>*/}
+          <Links links={linkData} />
           <group>
             <mesh position={[0, -1, 0]}>
               <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />
@@ -152,54 +152,6 @@ const World = (props: WorldProps) => {
             />
             <Space scale={20} linkData={linkData} />
           </Suspense>
-          <Image
-            position={[-5.5, 3, 1]}
-            rotation-y={Math.PI / 2}
-            src="/assets/city.jpg"
-            ratio={[300, 300]}
-            sizeScale={10}
-            framed
-          />
-          <Image
-            position={[-6.5, 3, 1]}
-            rotation-y={-Math.PI / 2}
-            src="/assets/city.jpg"
-            ratio={[300, 300]}
-            sizeScale={10}
-            framed
-          />
-          <Image
-            position={[-5.5, 3, 17]}
-            rotation-y={Math.PI / 2}
-            src="/assets/city.jpg"
-            ratio={[300, 300]}
-            sizeScale={10}
-            framed
-          />
-          <Image
-            position={[-6.5, 3, 17]}
-            rotation-y={-Math.PI / 2}
-            src="/assets/city.jpg"
-            ratio={[300, 300]}
-            sizeScale={10}
-            framed
-          />
-          <Image
-            position={[-5.5, 3, 33]}
-            rotation-y={Math.PI / 2}
-            src="/assets/city.jpg"
-            ratio={[300, 300]}
-            sizeScale={10}
-            framed
-          />
-          <Image
-            position={[-6.5, 3, 33]}
-            rotation-y={-Math.PI / 2}
-            src="/assets/city.jpg"
-            ratio={[300, 300]}
-            sizeScale={10}
-            framed
-          />
         </StandardEnvironment>
       )}
     </>

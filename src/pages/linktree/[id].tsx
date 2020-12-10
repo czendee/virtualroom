@@ -7,17 +7,17 @@ const LinkTreeSpace = dynamic(import("scenes/LinkTree"), { ssr: false });
 const linkData = [
   {
     link: "https://www.spotify.com/us/",
-    desc: "Spotify",
+    desc: "Spotify (1)",
     asset: "",
   },
   {
     link: "https://www.youtube.com/",
-    desc: "YouTube",
+    desc: "YouTube (2)",
     asset: "",
   },
   {
     link: "https://www.apple.com/apple-music/",
-    desc: "Apple Music",
+    desc: "Apple Music (3)",
     asset: "",
   },
   {

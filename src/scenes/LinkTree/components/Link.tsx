@@ -1,6 +1,6 @@
 import { Text, useMatcapTexture } from "@react-three/drei";
 import { Vector3 } from "three";
-import { Interactable } from "spacesvr";
+import { Interactable, Image } from "spacesvr";
 import * as THREE from "three";
 
 type LinkProps = {
@@ -22,12 +22,14 @@ const Link = (props: LinkProps) => {
   return (
     <group position={position} rotation={[0, rotY, 0]}>
       <Interactable onClick={handleClick}>
-        <mesh position={[0, 1, 0]} castShadow>
-          <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-          <meshMatcapMaterial matcap={matcap as THREE.Texture} />
-        </mesh>
+        <Image
+          src="/assets/city.jpg"
+          ratio={[300, 300]}
+          sizeScale={10}
+          framed
+        />
       </Interactable>
-      <Text color={color} fontSize={1}>
+      <Text color={color} fontSize={1} position-y={-4.5}>
         {text}
       </Text>
     </group>
