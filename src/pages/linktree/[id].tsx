@@ -50,11 +50,11 @@ const LinkTree: NextPage = () => {
       <LinkTreeSpace
         linkData={linkData}
         map="city"
-        far={10000000}
-        scenePos={[0, -150000, 0]}
+        far={100}
+        scenePos={[0, -35, 0]}
         fogNear={15}
-        hMapScale={20000}
-        xzMapScale={100000}
+        hMapScale={40}
+        xzMapScale={5}
         radius={10}
         textColor="blue"
         floorColor="black"

@@ -24,15 +24,15 @@ const Link = (props: LinkProps) => {
   } = props;
 
   const handleClick = () => {
-    window.open(link);
+    window.location.href = link;
   };
 
   return (
     <group position={position} rotation={[0, rotY, 0]}>
       <Interactable onClick={handleClick}>
-        <Image src={src} ratio={[1, 1]} sizeScale={10} framed />
+        <Image src={src} ratio={[1, 1]} sizeScale={5} framed />
       </Interactable>
-      <Text color={color} fontSize={1} position-y={-4.5}>
+      <Text color={color} fontSize={0.4} position-y={-2.5}>
         {text}
       </Text>
     </group>

@@ -1,4 +1,5 @@
 import Structure_00 from "../models/Structure_00";
+import CodameCollisions from "../models/CodameCollisions";
 import { Text } from "spacesvr";
 import Links from "./Links";
 
@@ -8,22 +9,29 @@ type SpaceProps = {
     desc: string;
     src: string;
   }[];
-  scale?: number;
   position?: [number, number, number];
 };
 
 const Space = (props: SpaceProps) => {
-  const { scale = 1, position = [0, 0, 0], linkData } = props;
-  const defaultScale = 20;
+  const { position = [0, 0, 0], linkData } = props;
+
   return (
-    <group scale={[scale, scale, scale]} position={position}>
-      <Structure_00 />
+    <group scale={[5, 5, 5]} position={position}>
+      <Structure_00 position-y={0.1155} />
+      <CodameCollisions />
       <Links links={linkData} />
       <Text
-        text="Muse"
+        text="Muse x Codame"
         rotation={[0, -Math.PI / 2, 0]}
-        position={[0.55, 0.2, 0.75]}
-        size={1.5}
+        position={[0.56, 0.2, 0.75]}
+        size={1}
+        color="red"
+      />
+      <Text
+        text="Artist Name"
+        rotation={[0, Math.PI / 2, 0]}
+        position={[-1.16, 0.2, 0.75]}
+        size={1}
         color="red"
       />
     </group>

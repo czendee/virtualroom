@@ -1,14 +1,20 @@
-import { StandardEnvironment, KeyframeEnvironment, Fog, Image } from "spacesvr";
+import {
+  StandardEnvironment,
+  KeyframeEnvironment,
+  Fog,
+  Keyframe,
+} from "spacesvr";
 import { Vector3 } from "three";
 import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
 import { Suspense } from "react";
 import { isMobile } from "react-device-detect";
 
-// @ts-ignore
-import Links from "./components/Links";
-import Scene from "./components/Scene";
+import Outside from "./components/Outside";
 import Space from "./components/Space";
+import Lighting from "./components/Lighting";
+import { CanvasProps } from "react-three-fiber";
+import { keyframes } from "./assets/constants";
 
 type WorldProps = {
   linkData: {
@@ -52,109 +58,52 @@ const World = (props: WorldProps) => {
     xzMapScale,
     far = 1000,
   } = props;
+
   const fColor = new THREE.Color(fogColor);
-  const keyframes: any = [];
-  let offset = 0;
-  for (const link of linkData) {
-    keyframes.push({
-      label: link.desc,
-      position: new Vector3(
-        Math.cos(offset) * (radius - 2),
-        0,
-        Math.sin(offset) * (radius - 2)
-      ),
-    });
-    offset += (2 * Math.PI) / linkData.length;
-  }
+
+  const Environment = (props: {
+    children: React.ReactNode;
+    keyframes: Keyframe[];
+    canvasProps: Partial<CanvasProps>;
+  }) => {
+    const { keyframes, children, canvasProps } = props;
+
+    if (isMobile) {
+      return (
+        <KeyframeEnvironment keyframes={keyframes} canvasProps={canvasProps}>
+          {children}
+        </KeyframeEnvironment>
+      );
+    } else {
+      return (
+        <StandardEnvironment canvasProps={canvasProps}>
+          {children}
+        </StandardEnvironment>
+      );
+    }
+  };
 
   return (
-    <>
-      {isMobile ? (
-        <KeyframeEnvironment
-          keyframes={keyframes}
-          canvasProps={{ camera: { far: far } }}
-        >
-          <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
-          {stars ? (
-            <Stars count={5000} factor={100000} radius={5000000} fade />
-          ) : (
-            <></>
-          )}
-          {fogColor ? (
-            <Fog color={fColor} near={fogNear} far={fogFar} />
-          ) : (
-            <></>
-          )}
-          <ambientLight intensity={0.2} />
-          <pointLight position={[0, 10, 0]} intensity={0.75} castShadow />
-          {/*<Links links={linkData} color={textColor} font={font} radius={radius}/>*/}
-          {/*<mesh position={[0, -1, 0]}>*/}
-          {/*  <boxBufferGeometry attach="geometry" args={[10, 10, 10]} />*/}
-          {/*  <meshStandardMaterial attach="material" color="yellow" />*/}
-          {/*</mesh>*/}
-          <Suspense fallback={null}>
-            <Scene
-              position={scenePos}
-              color={floorColor}
-              map={map}
-              hScale={hMapScale}
-              xzScale={xzMapScale}
-            />
-            <Space scale={20} linkData={linkData} />
-          </Suspense>
-        </KeyframeEnvironment>
+    <Environment keyframes={keyframes} canvasProps={{ camera: { far } }}>
+      <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
+      {stars ? (
+        <Stars count={5000} factor={100000} radius={5000000} fade />
       ) : (
-        <StandardEnvironment canvasProps={{ camera: { far: far } }}>
-          <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
-          {stars ? (
-            <Stars count={5000} factor={100000} radius={5000000} fade />
-          ) : (
-            <></>
-          )}
-          {fogColor ? (
-            <Fog color={fColor} near={fogNear} far={fogFar} />
-          ) : (
-            <></>
-          )}
-          <ambientLight intensity={0.2} />
-          <pointLight position={[0, 10, 0]} intensity={0.5} castShadow />
-          <pointLight position={[-15, 10, 20]} intensity={0.5} castShadow />
-
-          <group>
-            <mesh position={[0, -1, 0]}>
-              <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />
-              <meshStandardMaterial attach="material" color="white" />
-            </mesh>
-            <mesh position={[7, -1, 0]}>
-              <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />
-              <meshStandardMaterial attach="material" color="red" />
-            </mesh>
-            <mesh position={[-7, -1, 0]}>
-              <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />
-              <meshStandardMaterial attach="material" color="yellow" />
-            </mesh>
-            <mesh position={[0, -1, 7]}>
-              <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />
-              <meshStandardMaterial attach="material" color="green" />
-            </mesh>
-            <mesh position={[0, -1, -7]}>
-              <boxBufferGeometry attach="geometry" args={[0.25, 0.25, 0.25]} />
-              <meshStandardMaterial attach="material" color="blue" />
-            </mesh>
-          </group>
-          <Suspense fallback={null}>
-            <Scene
-              position={scenePos}
-              color={floorColor}
-              map={map}
-              hScale={hMapScale}
-              xzScale={xzMapScale}
-            />
-            <Space scale={20} linkData={linkData} />
-          </Suspense>
-        </StandardEnvironment>
+        <></>
       )}
-    </>
+      {fogColor ? <Fog color={fColor} near={fogNear} far={fogFar} /> : <></>}
+      <Lighting />
+      <Suspense fallback={null}>
+        <Outside
+          position={scenePos}
+          color={floorColor}
+          map={map}
+          hScale={hMapScale}
+          xzScale={xzMapScale}
+        />
+        <Space linkData={linkData} />
+      </Suspense>
+    </Environment>
   );
 };
 
