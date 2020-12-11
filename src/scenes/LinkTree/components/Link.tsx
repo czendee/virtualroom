@@ -1,7 +1,6 @@
 import { Text, useMatcapTexture } from "@react-three/drei";
 import { Vector3 } from "three";
 import { Interactable, Image } from "spacesvr";
-import * as THREE from "three";
 
 type LinkProps = {
   link: string;
@@ -23,7 +22,7 @@ const Link = (props: LinkProps) => {
     src,
     font,
   } = props;
-  const [matcap] = useMatcapTexture("6D1616_E6CDBA_DE2B24_230F0F");
+
   const handleClick = () => {
     window.open(link);
   };
