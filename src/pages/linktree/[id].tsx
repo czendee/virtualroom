@@ -6,32 +6,32 @@ const LinkTreeSpace = dynamic(import("scenes/LinkTree"), { ssr: false });
 
 const linkData = [
   {
-    link: "https://www.spotify.com/us/",
+    link: "",
     desc: "Spotify (1)",
     src: "/assets/gradient2.jpg",
   },
   {
-    link: "https://www.youtube.com/",
+    link: "",
     desc: "YouTube (2)",
     src: "/assets/gradient2.jpg",
   },
   {
-    link: "https://www.apple.com/apple-music/",
+    link: "",
     desc: "Apple Music (3)",
     src: "/assets/gradient2.jpg",
   },
   {
-    link: "https://www.apple.com/apple-music/",
+    link: "",
     desc: "Link 4",
     src: "/assets/gradient2.jpg",
   },
   {
-    link: "https://www.apple.com/apple-music/",
+    link: "",
     desc: "Link 5",
     src: "/assets/gradient2.jpg",
   },
   {
-    link: "https://www.apple.com/apple-music/",
+    link: "",
     desc: "Link 6",
     src: "/assets/gradient2.jpg",
   },
@@ -64,8 +64,6 @@ const LinkTree: NextPage = () => {
         fogColor={"#000000"}
         hMapScale={30}
         xzMapScale={100}
-        radius={10}
-        textColor="blue"
         floorColor="black"
         night
       />

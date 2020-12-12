@@ -29,12 +29,9 @@ type LinkTreeProps = {
   sunPos?: number;
   night?: boolean;
   stars?: boolean;
-  textColor?: string;
-  font?: string;
   fogColor?: string;
   fogFar?: number;
   fogNear?: number;
-  radius?: number;
   map?: string;
   scenePos?: [number, number, number];
   hMapScale?: number;
@@ -51,12 +48,9 @@ const LinkTreeSpace = (props: LinkTreeProps) => {
     sunPos = 1,
     night,
     stars,
-    textColor,
-    font,
     fogColor,
     fogFar = 50,
     fogNear = 3,
-    radius = 10,
     map,
     scenePos = [0, -1, 0],
     hMapScale,
