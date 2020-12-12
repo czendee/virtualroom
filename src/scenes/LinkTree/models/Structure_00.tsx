@@ -43,6 +43,18 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   materials["glass.mat"].metalness = 1;
   materials["glass.mat"].roughness = 0;
+  materials["glass.mat"].transparent = false;
+  materials["glass.mat"].opacity = 0.4;
+  materials["skylight.mat"].metalness = 1;
+  materials["skylight.mat"].roughness = 0;
+  materials["skylight.mat"].transparent = false;
+  materials["skylight.mat"].opacity = 0.4;
+
+  materials["vent.mat"].metalness = 0.87;
+  materials["vent.mat"].roughness = 0.22;
+  materials["windows.mat"].metalness = 0.87;
+  materials["windows.mat"].roughness = 0.22;
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group>

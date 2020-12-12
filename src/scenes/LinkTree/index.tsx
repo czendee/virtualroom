@@ -4,10 +4,8 @@ import {
   Fog,
   Keyframe,
 } from "spacesvr";
-import { Vector3 } from "three";
 import * as THREE from "three";
 import { Sky, Stars } from "@react-three/drei";
-import { Suspense } from "react";
 import { isMobile } from "react-device-detect";
 
 import Outside from "./components/Outside";
@@ -86,23 +84,17 @@ const World = (props: WorldProps) => {
   return (
     <Environment keyframes={keyframes} canvasProps={{ camera: { far } }}>
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
-      {stars ? (
-        <Stars count={5000} factor={100000} radius={5000000} fade />
-      ) : (
-        <></>
-      )}
-      {fogColor ? <Fog color={fColor} near={fogNear} far={fogFar} /> : <></>}
+      {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
+      {fogColor && <Fog color={fColor} near={fogNear} far={fogFar} />}
       <Lighting />
-      <Suspense fallback={null}>
-        <Outside
-          position={scenePos}
-          color={floorColor}
-          map={map}
-          hScale={hMapScale}
-          xzScale={xzMapScale}
-        />
-        <Space linkData={linkData} />
-      </Suspense>
+      <Outside
+        position={scenePos}
+        color={floorColor}
+        map={map}
+        hScale={hMapScale}
+        xzScale={xzMapScale}
+      />
+      <Space linkData={linkData} />
     </Environment>
   );
 };

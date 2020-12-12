@@ -9,13 +9,13 @@ const Lighting = (props: JSX.IntrinsicElements["group"]) => {
 
   const attrs = {
     penumbra: 0.8,
-    intensity: 0.8,
+    intensity: 0.9,
     color: "#74148c",
   };
 
   return (
     <group {...props}>
-      <ambientLight intensity={0.4} />
+      <ambientLight intensity={0.6} />
       <group position={[-4, 2, 10]}>
         <primitive object={spotLight1} {...attrs} />
         <primitive object={spotLight1.target} position={[0, 0.1, -1]} />

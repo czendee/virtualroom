@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Structure_00 from "../models/Structure_00";
 import CodameCollisions from "../models/CodameCollisions";
 import { Text } from "spacesvr";
@@ -17,8 +18,12 @@ const Space = (props: SpaceProps) => {
 
   return (
     <group scale={[5, 5, 5]} position={position}>
-      <Structure_00 position-y={0.1155} />
-      <CodameCollisions />
+      <Suspense fallback={null}>
+        <Structure_00 position-y={0.1155} />
+      </Suspense>
+      <Suspense fallback={null}>
+        <CodameCollisions />
+      </Suspense>
       <Links links={linkData} />
       <Text
         text="Muse x Codame"

@@ -1,6 +1,7 @@
-import { useLoader } from "react-three-fiber";
+import { useFrame, useLoader } from "react-three-fiber";
 import * as THREE from "three";
-import { ReactText } from "react";
+import { ReactText, useEffect, useMemo, useRef } from "react";
+import { InstancedMesh, Mesh } from "three";
 
 type SceneProps = {
   color?: string | ReactText;
@@ -26,9 +27,34 @@ const Outside = (props: SceneProps) => {
   const heightmap = useLoader(THREE.TextureLoader, `/assets/${map}.jpg`);
   const emissiveMap = useLoader(THREE.TextureLoader, "/assets/gradient2.jpg");
 
+  const count = 9; // odd perfect square pls (9, 25, 49, ...)
+  const mesh = useRef<InstancedMesh>();
+  const dummy = useMemo(() => new THREE.Object3D(), []);
+
+  useEffect(() => {
+    if (mesh.current && count) {
+      let len = Math.ceil(Math.sqrt(count));
+      len = len % 2 === 0 ? len + 1 : len;
+      const min = -Math.floor(len / 2);
+      const max = min + (len - 1);
+      console.log(len, min, max);
+      for (let x = min; x < max; x++) {
+        for (let z = min; z < max; z++) {
+          dummy.position.set(x * xzScale, 0, z * xzScale);
+          dummy.rotation.x = -Math.PI / 2;
+          // dummy.rotation.z = (Math.PI / 2) * (x * len + z);
+          dummy.updateMatrix();
+          mesh.current.setMatrixAt(x * len + z, dummy.matrix);
+        }
+      }
+      mesh.current.instanceMatrix.needsUpdate = true;
+    }
+  }, [count, mesh]);
+
   return (
-    <group position={position} rotation-x={-Math.PI / 2} scale={[10, 10, 10]}>
-      <mesh receiveShadow>
+    <group position={position}>
+      {/* @ts-ignore */}
+      <instancedMesh ref={mesh} args={[null, null, count]}>
         <planeBufferGeometry args={[xzScale, xzScale, wSegments, hSegments]} />
         <meshStandardMaterial
           color={color}
@@ -40,7 +66,7 @@ const Outside = (props: SceneProps) => {
           emissive={new THREE.Color(0x800080)}
           emissiveIntensity={3}
         />
-      </mesh>
+      </instancedMesh>
     </group>
   );
 };
