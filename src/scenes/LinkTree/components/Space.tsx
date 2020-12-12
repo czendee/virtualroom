@@ -45,14 +45,14 @@ const Space = (props: SpaceProps) => {
       </Suspense>
       {socials && (
         <group
-          position={[-1, 0.2, -0.1]}
+          position={[-1.1, 0.2, -0.1]}
           rotation={[0, Math.PI / 2, 0]}
           scale={[0.35, 0.35, 0.35]}
         >
           <Suspense fallback={null}>
             {socials.instagram && (
               <Interactable onClick={igLink}>
-                <group position={[-0.75, 0, 0]}>
+                <group position={[-0.75, 0, 0.075]}>
                   <Instagram />
                 </group>
               </Interactable>
