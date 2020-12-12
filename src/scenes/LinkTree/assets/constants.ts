@@ -74,5 +74,3 @@ export const keyframes: Keyframe[] = [
     label: "1",
   },
 ];
-
-console.log(keyframes);

@@ -14,7 +14,7 @@ import Lighting from "./components/Lighting";
 import { CanvasProps } from "react-three-fiber";
 import { keyframes } from "./assets/constants";
 
-type WorldProps = {
+type LinkTreeProps = {
   linkData: {
     link: string;
     desc: string;
@@ -37,7 +37,7 @@ type WorldProps = {
   far?: number;
 };
 
-const World = (props: WorldProps) => {
+const LinkTreeSpace = (props: LinkTreeProps) => {
   const {
     linkData,
     floorColor = 0xbbbbbb,
@@ -99,4 +99,4 @@ const World = (props: WorldProps) => {
   );
 };
 
-export default World;
+export default LinkTreeSpace;
