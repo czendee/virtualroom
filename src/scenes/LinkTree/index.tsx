@@ -20,6 +20,11 @@ type LinkTreeProps = {
     desc: string;
     src: string;
   }[];
+  socials?: {
+    instagram?: string;
+    twitter?: string;
+    web?: string;
+  };
   floorColor?: string;
   sunPos?: number;
   night?: boolean;
@@ -40,6 +45,7 @@ type LinkTreeProps = {
 const LinkTreeSpace = (props: LinkTreeProps) => {
   const {
     linkData,
+    socials,
     floorColor = 0xbbbbbb,
     sunPos = 1,
     night,
@@ -94,7 +100,7 @@ const LinkTreeSpace = (props: LinkTreeProps) => {
         hScale={hMapScale}
         xzScale={xzMapScale}
       />
-      <Space linkData={linkData} />
+      <Space linkData={linkData} socials={socials} />
     </Environment>
   );
 };

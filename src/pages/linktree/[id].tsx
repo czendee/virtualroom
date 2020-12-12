@@ -37,6 +37,12 @@ const linkData = [
   },
 ];
 
+const socials = {
+  instagram: "https://www.instagram.com/musehq/",
+  twitter: "https://twitter.com/musehq_",
+  web: "spaces.gallery",
+};
+
 const LinkTree: NextPage = () => {
   return (
     <>
@@ -49,6 +55,7 @@ const LinkTree: NextPage = () => {
       </Head>
       <LinkTreeSpace
         linkData={linkData}
+        socials={socials}
         map="city"
         far={100}
         scenePos={[0, -20, 0]}

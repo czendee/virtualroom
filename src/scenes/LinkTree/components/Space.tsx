@@ -1,7 +1,10 @@
-import { Suspense } from "react";
+import { Suspense, useRef } from "react";
 import Structure_00 from "../models/Structure_00";
 import CodameCollisions from "../models/CodameCollisions";
-import { Text } from "spacesvr";
+import Instagram from "../models/Instagram";
+import Twitter from "../models/Twitter";
+import Web from "../models/Web";
+import { Text, Interactable } from "spacesvr";
 import Links from "./Links";
 
 type SpaceProps = {
@@ -11,10 +14,26 @@ type SpaceProps = {
     src: string;
   }[];
   position?: [number, number, number];
+  socials?: {
+    instagram?: string;
+    twitter?: string;
+    web?: string;
+  };
 };
 
 const Space = (props: SpaceProps) => {
-  const { position = [0, 0, 0], linkData } = props;
+  const { position = [0, 0, 0], linkData, socials } = props;
+  const target = useRef();
+
+  const igLink = () => {
+    window.open(socials?.instagram, "_blank");
+  };
+  const twitterLink = () => {
+    window.open(socials?.twitter, "_blank");
+  };
+  const webLink = () => {
+    window.open(socials?.web, "_blank");
+  };
 
   return (
     <group scale={[5, 5, 5]} position={position}>
@@ -24,6 +43,35 @@ const Space = (props: SpaceProps) => {
       <Suspense fallback={null}>
         <CodameCollisions />
       </Suspense>
+      {socials && (
+        <group
+          position={[-1, 0.2, -0.1]}
+          rotation={[0, Math.PI / 2, 0]}
+          scale={[0.35, 0.35, 0.35]}
+        >
+          <Suspense fallback={null}>
+            {socials.instagram && (
+              <Interactable onClick={igLink}>
+                <group position={[-0.75, 0, 0]}>
+                  <Instagram />
+                </group>
+              </Interactable>
+            )}
+            {socials.twitter && (
+              <Interactable onClick={twitterLink}>
+                <Twitter ref={target} />
+              </Interactable>
+            )}
+            {socials.web && (
+              <Interactable onClick={webLink}>
+                <group position={[0.75, 0, 0]}>
+                  <Web />
+                </group>
+              </Interactable>
+            )}
+          </Suspense>
+        </group>
+      )}
       <Links links={linkData} />
       <Text
         text="Muse x Codame"
