@@ -73,4 +73,11 @@ export const keyframes: Keyframe[] = [
       .multiplyScalar(1 / SCALE),
     label: "4",
   },
+  {
+    position: linkPositions[0].p
+      .clone()
+      .add(new Vector3(-(DIST + 1), 0, 1))
+      .multiplyScalar(1 / SCALE),
+    label: "socials",
+  },
 ];
