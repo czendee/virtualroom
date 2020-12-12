@@ -32,11 +32,11 @@ const DIST = 5;
 const SCALE = 4; // taken from Space.tsx and Links.tsx
 export const keyframes: Keyframe[] = [
   {
-    position: linkPositions[1].p
+    position: linkPositions[2].p
       .clone()
-      .add(new Vector3(DIST, 0, 0))
+      .add(new Vector3(-(DIST + 5), 0, 0))
       .multiplyScalar(1 / SCALE),
-    label: "2",
+    label: "socials",
   },
   {
     position: linkPositions[0].p
@@ -44,13 +44,6 @@ export const keyframes: Keyframe[] = [
       .add(new Vector3(-DIST, 0, 0))
       .multiplyScalar(1 / SCALE),
     label: "1",
-  },
-  {
-    position: linkPositions[0].p
-      .clone()
-      .add(new Vector3(-(DIST + 5), 0, -2))
-      .multiplyScalar(1 / SCALE),
-    label: "socials",
   },
   {
     position: linkPositions[2].p
@@ -79,5 +72,12 @@ export const keyframes: Keyframe[] = [
       .add(new Vector3(DIST, 0, 0))
       .multiplyScalar(1 / SCALE),
     label: "4",
+  },
+  {
+    position: linkPositions[1].p
+      .clone()
+      .add(new Vector3(DIST, 0, 0))
+      .multiplyScalar(1 / SCALE),
+    label: "2",
   },
 ];

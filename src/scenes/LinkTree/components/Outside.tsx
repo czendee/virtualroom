@@ -46,6 +46,7 @@ const Outside = (props: SceneProps) => {
           mesh.current.setMatrixAt(x * len + z, dummy.matrix);
         }
       }
+      // mesh.current.layers.set(1);
       mesh.current.instanceMatrix.needsUpdate = true;
     }
   }, [count, mesh]);

@@ -1,9 +1,10 @@
-import { Suspense, useRef } from "react";
+import { Suspense, useMemo } from "react";
 import Structure_00 from "../models/Structure_00";
 import CodameCollisions from "../models/CodameCollisions";
 import Social from "./Social";
-import { Text, Interactable } from "spacesvr";
+import { Text } from "spacesvr";
 import Links from "./Links";
+import { MeshStandardMaterial } from "three";
 
 type SpaceProps = {
   linkData: {
@@ -12,6 +13,7 @@ type SpaceProps = {
     src: string;
   }[];
   position?: [number, number, number];
+  name?: string;
   socials?: {
     instagram?: string;
     twitter?: string;
@@ -20,7 +22,17 @@ type SpaceProps = {
 };
 
 const Space = (props: SpaceProps) => {
-  const { position = [0, 0, 0], linkData, socials } = props;
+  const { position = [0, 0, 0], linkData, socials, name } = props;
+
+  const material = useMemo(
+    () =>
+      new MeshStandardMaterial({
+        color: 0xffffff,
+        metalness: 0.2,
+        roughness: 0.1,
+      }),
+    []
+  );
 
   return (
     <group scale={[5, 5, 5]} position={position}>
@@ -30,40 +42,57 @@ const Space = (props: SpaceProps) => {
       <Suspense fallback={null}>
         <CodameCollisions />
       </Suspense>
-      {socials && (
-        <group
-          position={[-1.1, 0.2, -0.1]}
-          rotation={[0, Math.PI / 2, 0]}
-          scale={[0.35, 0.35, 0.35]}
-        >
-          {socials.instagram && (
-            <Social
-              type="instagram"
-              link={socials.instagram}
-              position={[-0.75, 0, 0.075]}
-            />
-          )}
-          {socials.twitter && <Social type="twitter" link={socials.twitter} />}
-          {socials.web && (
-            <Social type="web" link={socials.web} position={[0.75, 0, 0]} />
-          )}
-        </group>
-      )}
+      <group position={[-1.16, 0.3, 1]} rotation={[0, Math.PI / 2, 0]}>
+        <Text
+          text={(name || "").toUpperCase()}
+          size={1.15}
+          material={material}
+          position={[0, 0, -0.01]}
+        />
+        {socials && (
+          <group position={[0, -0.17, 0.075]} scale={[0.225, 0.225, 0.225]}>
+            {socials.instagram && (
+              <Social
+                type="instagram"
+                link={socials.instagram}
+                position={[-0.75, 0, 0.075]}
+              />
+            )}
+            {socials.twitter && (
+              <Social type="twitter" link={socials.twitter} />
+            )}
+            {socials.web && (
+              <Social type="web" link={socials.web} position={[0.75, 0, 0]} />
+            )}
+          </group>
+        )}
+      </group>
       <Links links={linkData} />
-      <Text
-        text="Muse x Codame"
-        rotation={[0, -Math.PI / 2, 0]}
-        position={[0.56, 0.2, 0.75]}
-        size={1}
-        color="red"
-      />
-      <Text
-        text="Artist Name"
-        rotation={[0, Math.PI / 2, 0]}
-        position={[-1.16, 0.2, 0.75]}
-        size={1}
-        color="red"
-      />
+      <group
+        position={[0.27, 0.195, -0.55]}
+        rotation={[0, -Math.PI / 5, 0]}
+        name="Muse & Codame"
+      >
+        <Text
+          text="Muse"
+          size={1.18}
+          material={material}
+          position={[-0.06, 0, 0]}
+        />
+        <Text
+          text="&"
+          size={1.4}
+          material={material}
+          position={[0.22, -0.01, 0]}
+          rotation={[0, 0, Math.PI / 6.5]}
+        />
+        <Text
+          text="Codame"
+          size={1.18}
+          position={[0, -0.12, 0]}
+          material={material}
+        />
+      </group>
     </group>
   );
 };

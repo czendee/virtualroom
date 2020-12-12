@@ -28,6 +28,11 @@ const FILE_URL =
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
+
+  materials["twitter.icon"].metalness = 0.1;
+  materials["twitter.button"].metalness = 0.1;
+  materials["twitter.base"].metalness = 0.1;
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group>

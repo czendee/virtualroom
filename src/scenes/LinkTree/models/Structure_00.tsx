@@ -8,42 +8,49 @@ import { useGLTF } from "@react-three/drei/useGLTF";
 
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACO_URL } from "spacesvr";
+import { Color } from "three";
 
 type GLTFResult = GLTF & {
   nodes: {
+    stand: THREE.Mesh;
+    light: THREE.Mesh;
     structure: THREE.Mesh;
     middleSupports: THREE.Mesh;
     metal: THREE.Mesh;
     glass: THREE.Mesh;
   };
   materials: {
-    structure: THREE.MeshStandardMaterial;
     metal: THREE.MeshStandardMaterial;
+    light: THREE.MeshStandardMaterial;
+    structure: THREE.MeshStandardMaterial;
+    middleSupports: THREE.MeshStandardMaterial;
     glass: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Structure-1607759921/structure_01.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Structure-1607773998/structure_05.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
-  // materials["glass.mat"].metalness = 1;
-  // materials["glass.mat"].roughness = 0;
-  // materials["glass.mat"].transparent = false;
-  // materials["skylight.mat"].metalness = 1;
-  // materials["skylight.mat"].roughness = 0;
-  // materials["skylight.mat"].transparent = false;
-  //
-  // materials["vent.mat"].metalness = 0.87;
-  // materials["vent.mat"].roughness = 0.22;
-  // materials["windows.mat"].metalness = 0.87;
-  // materials["windows.mat"].roughness = 0.22;
+
+  materials.light.emissive = new Color(0x0000ff);
+  materials.light.emissiveIntensity = 3;
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group>
+        <mesh
+          name="stand"
+          material={materials.metal}
+          geometry={nodes.stand.geometry}
+        />
+        <mesh
+          name="light"
+          material={materials.light}
+          geometry={nodes.light.geometry}
+        />
         <mesh
           name="structure"
           material={materials.structure}
@@ -51,7 +58,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         />
         <mesh
           name="middleSupports"
-          material={materials.structure}
+          material={materials.middleSupports}
           geometry={nodes.middleSupports.geometry}
         />
         <mesh

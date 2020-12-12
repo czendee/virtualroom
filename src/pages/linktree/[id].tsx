@@ -50,6 +50,7 @@ const LinkTree: NextPage = () => {
       <LinkTreeSpace
         linkData={linkData}
         socials={socials}
+        name={"Artist name"}
         map="city"
         far={100}
         scenePos={[0, -20, 0]}

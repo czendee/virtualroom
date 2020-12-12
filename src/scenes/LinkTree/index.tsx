@@ -13,6 +13,7 @@ import Space from "./components/Space";
 import Lighting from "./components/Lighting";
 import { CanvasProps } from "react-three-fiber";
 import { keyframes } from "./assets/constants";
+import { ReactNode, useLayoutEffect } from "react";
 
 type LinkTreeProps = {
   linkData: {
@@ -20,6 +21,7 @@ type LinkTreeProps = {
     desc: string;
     src: string;
   }[];
+  name?: string;
   socials?: {
     instagram?: string;
     twitter?: string;
@@ -47,6 +49,7 @@ const LinkTreeSpace = (props: LinkTreeProps) => {
     floorColor = 0xbbbbbb,
     sunPos = 1,
     night,
+    name,
     stars,
     fogColor,
     fogFar = 50,
@@ -96,7 +99,7 @@ const LinkTreeSpace = (props: LinkTreeProps) => {
         hScale={hMapScale}
         xzScale={xzMapScale}
       />
-      <Space linkData={linkData} socials={socials} />
+      <Space linkData={linkData} socials={socials} name={name} />
     </Environment>
   );
 };
