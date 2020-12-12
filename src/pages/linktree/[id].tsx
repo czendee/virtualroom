@@ -6,32 +6,26 @@ const LinkTreeSpace = dynamic(import("scenes/LinkTree"), { ssr: false });
 
 const linkData = [
   {
-    link: "",
     desc: "Spotify (1)",
     src: "/assets/gradient2.jpg",
   },
   {
-    link: "",
     desc: "YouTube (2)",
     src: "/assets/gradient2.jpg",
   },
   {
-    link: "",
     desc: "Apple Music (3)",
     src: "/assets/gradient2.jpg",
   },
   {
-    link: "",
     desc: "Link 4",
     src: "/assets/gradient2.jpg",
   },
   {
-    link: "",
     desc: "Link 5",
     src: "/assets/gradient2.jpg",
   },
   {
-    link: "",
     desc: "Link 6",
     src: "/assets/gradient2.jpg",
   },

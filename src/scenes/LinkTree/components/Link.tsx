@@ -1,9 +1,9 @@
-import { Text, useMatcapTexture } from "@react-three/drei";
+import { Text } from "@react-three/drei";
 import { Vector3 } from "three";
 import { Interactable, Image } from "spacesvr";
 
 type LinkProps = {
-  link: string;
+  link?: string;
   position: Vector3 | [number, number, number];
   src: string;
   rotY?: number;
@@ -12,7 +12,14 @@ type LinkProps = {
 };
 
 const Link = (props: LinkProps) => {
-  const { link, position, rotY = 0, text = "", color = "white", src } = props;
+  const {
+    link = "",
+    position,
+    rotY = 0,
+    text = "",
+    color = "white",
+    src,
+  } = props;
 
   const handleClick = () => {
     window.location.href = link;

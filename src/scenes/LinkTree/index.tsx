@@ -16,7 +16,7 @@ import { keyframes } from "./assets/constants";
 
 type LinkTreeProps = {
   linkData: {
-    link: string;
+    link?: string;
     desc: string;
     src: string;
   }[];

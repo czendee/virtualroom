@@ -4,18 +4,17 @@ import { linkPositions } from "../assets/constants";
 
 type LinksProps = {
   links: {
-    link: string;
+    link?: string;
     desc: string;
     src: string;
   }[];
   color?: string;
-  font?: string;
 };
 
 const linkArr: any = [];
 
 const Links = (props: LinksProps) => {
-  const { links, color, font } = props;
+  const { links, color } = props;
 
   for (let i = 0; i < links.length; i++) {
     linkArr.push(
@@ -24,7 +23,6 @@ const Links = (props: LinksProps) => {
         rotY={linkPositions[i].r}
         text={links[i].desc}
         color={color}
-        font={font}
         link={links[i].link}
         src={links[i].src}
         key={i}

@@ -7,7 +7,7 @@ import Links from "./Links";
 
 type SpaceProps = {
   linkData: {
-    link: string;
+    link?: string;
     desc: string;
     src: string;
   }[];
@@ -21,21 +21,6 @@ type SpaceProps = {
 
 const Space = (props: SpaceProps) => {
   const { position = [0, 0, 0], linkData, socials } = props;
-  const igLink = () => {
-    if (socials && socials.instagram) {
-      window.location.href = socials.instagram;
-    }
-  };
-  const twitterLink = () => {
-    if (socials && socials.twitter) {
-      window.location.href = socials.twitter;
-    }
-  };
-  const webLink = () => {
-    if (socials && socials.web) {
-      window.location.href = socials.web;
-    }
-  };
 
   return (
     <group scale={[5, 5, 5]} position={position}>
