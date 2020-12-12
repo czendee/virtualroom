@@ -1,9 +1,7 @@
 import { Suspense, useRef } from "react";
 import Structure_00 from "../models/Structure_00";
 import CodameCollisions from "../models/CodameCollisions";
-import Instagram from "../models/Instagram";
-import Twitter from "../models/Twitter";
-import Web from "../models/Web";
+import Social from "./Social";
 import { Text, Interactable } from "spacesvr";
 import Links from "./Links";
 
@@ -23,7 +21,6 @@ type SpaceProps = {
 
 const Space = (props: SpaceProps) => {
   const { position = [0, 0, 0], linkData, socials } = props;
-
   const igLink = () => {
     if (socials && socials.instagram) {
       window.location.href = socials.instagram;
@@ -54,27 +51,17 @@ const Space = (props: SpaceProps) => {
           rotation={[0, Math.PI / 2, 0]}
           scale={[0.35, 0.35, 0.35]}
         >
-          <Suspense fallback={null}>
-            {socials.instagram && (
-              <Interactable onClick={igLink}>
-                <group position={[-0.75, 0, 0.075]}>
-                  <Instagram />
-                </group>
-              </Interactable>
-            )}
-            {socials.twitter && (
-              <Interactable onClick={twitterLink}>
-                <Twitter />
-              </Interactable>
-            )}
-            {socials.web && (
-              <Interactable onClick={webLink}>
-                <group position={[0.75, 0, 0]}>
-                  <Web />
-                </group>
-              </Interactable>
-            )}
-          </Suspense>
+          {socials.instagram && (
+            <Social
+              type="instagram"
+              link={socials.instagram}
+              position={[-0.75, 0, 0.075]}
+            />
+          )}
+          {socials.twitter && <Social type="twitter" link={socials.twitter} />}
+          {socials.web && (
+            <Social type="web" link={socials.web} position={[0.75, 0, 0]} />
+          )}
         </group>
       )}
       <Links links={linkData} />
