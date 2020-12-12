@@ -39,25 +39,11 @@ export const keyframes: Keyframe[] = [
     label: "2",
   },
   {
-    position: linkPositions[3].p
-      .clone()
-      .add(new Vector3(DIST, 0, 0))
-      .multiplyScalar(1 / SCALE),
-    label: "4",
-  },
-  {
-    position: linkPositions[5].p
-      .clone()
-      .add(new Vector3(DIST, 0, 0))
-      .multiplyScalar(1 / SCALE),
-    label: "6",
-  },
-  {
-    position: linkPositions[4].p
+    position: linkPositions[0].p
       .clone()
       .add(new Vector3(-DIST, 0, 0))
       .multiplyScalar(1 / SCALE),
-    label: "5",
+    label: "1",
   },
   {
     position: linkPositions[2].p
@@ -67,10 +53,24 @@ export const keyframes: Keyframe[] = [
     label: "3",
   },
   {
-    position: linkPositions[0].p
+    position: linkPositions[4].p
       .clone()
       .add(new Vector3(-DIST, 0, 0))
       .multiplyScalar(1 / SCALE),
-    label: "1",
+    label: "5",
+  },
+  {
+    position: linkPositions[5].p
+      .clone()
+      .add(new Vector3(DIST, 0, 0))
+      .multiplyScalar(1 / SCALE),
+    label: "6",
+  },
+  {
+    position: linkPositions[3].p
+      .clone()
+      .add(new Vector3(DIST, 0, 0))
+      .multiplyScalar(1 / SCALE),
+    label: "4",
   },
 ];
