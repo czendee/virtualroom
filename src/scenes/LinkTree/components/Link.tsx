@@ -9,19 +9,10 @@ type LinkProps = {
   rotY?: number;
   text?: string;
   color?: string;
-  font?: string;
 };
 
 const Link = (props: LinkProps) => {
-  const {
-    link,
-    position,
-    rotY = 0,
-    text = "",
-    color = "white",
-    src,
-    font,
-  } = props;
+  const { link, position, rotY = 0, text = "", color = "white", src } = props;
 
   const handleClick = () => {
     window.location.href = link;
@@ -29,9 +20,13 @@ const Link = (props: LinkProps) => {
 
   return (
     <group position={position} rotation={[0, rotY, 0]}>
-      <Interactable onClick={handleClick}>
+      {link === "" ? (
         <Image src={src} ratio={[1, 1]} sizeScale={5} framed />
-      </Interactable>
+      ) : (
+        <Interactable onClick={handleClick}>
+          <Image src={src} ratio={[1, 1]} sizeScale={5} framed />
+        </Interactable>
+      )}
       <Text color={color} fontSize={0.4} position-y={-2.5}>
         {text}
       </Text>
