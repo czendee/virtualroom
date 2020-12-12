@@ -23,16 +23,21 @@ type SpaceProps = {
 
 const Space = (props: SpaceProps) => {
   const { position = [0, 0, 0], linkData, socials } = props;
-  const target = useRef();
 
   const igLink = () => {
-    window.open(socials?.instagram, "_blank");
+    if (socials && socials.instagram) {
+      window.location.href = socials.instagram;
+    }
   };
   const twitterLink = () => {
-    window.open(socials?.twitter, "_blank");
+    if (socials && socials.twitter) {
+      window.location.href = socials.twitter;
+    }
   };
   const webLink = () => {
-    window.open(socials?.web, "_blank");
+    if (socials && socials.web) {
+      window.location.href = socials.web;
+    }
   };
 
   return (
@@ -59,7 +64,7 @@ const Space = (props: SpaceProps) => {
             )}
             {socials.twitter && (
               <Interactable onClick={twitterLink}>
-                <Twitter ref={target} />
+                <Twitter />
               </Interactable>
             )}
             {socials.web && (

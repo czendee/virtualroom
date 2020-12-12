@@ -40,6 +40,7 @@ type LinkTreeProps = {
   hMapScale?: number;
   xzMapScale?: number;
   far?: number;
+  lightColor?: string;
 };
 
 const LinkTreeSpace = (props: LinkTreeProps) => {
@@ -61,6 +62,7 @@ const LinkTreeSpace = (props: LinkTreeProps) => {
     hMapScale,
     xzMapScale,
     far = 1000,
+    lightColor,
   } = props;
 
   const fColor = new THREE.Color(fogColor);
@@ -92,7 +94,7 @@ const LinkTreeSpace = (props: LinkTreeProps) => {
       <Sky inclination={sunPos} distance={night ? 0 : 1000000} />
       {stars && <Stars count={5000} factor={100000} radius={5000000} fade />}
       {fogColor && <Fog color={fColor} near={fogNear} far={fogFar} />}
-      <Lighting />
+      <Lighting color={lightColor} />
       <Outside
         position={scenePos}
         color={floorColor}

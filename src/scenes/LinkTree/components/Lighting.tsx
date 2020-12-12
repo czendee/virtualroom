@@ -1,16 +1,21 @@
 import { useMemo } from "react";
 import { SpotLight } from "three";
 
-const Lighting = (props: JSX.IntrinsicElements["group"]) => {
+type LightingProps = {
+  color?: string;
+};
+
+const Lighting = (props: JSX.IntrinsicElements["group"] & LightingProps) => {
   const spotLight1 = useMemo(() => new SpotLight(), []);
   const spotLight2 = useMemo(() => new SpotLight(), []);
   const spotLight3 = useMemo(() => new SpotLight(), []);
   const spotLight4 = useMemo(() => new SpotLight(), []);
 
+  const { color = "#74148c" } = props;
   const attrs = {
     penumbra: 0.8,
     intensity: 0.5,
-    color: "#74148c",
+    color: color,
   };
 
   return (

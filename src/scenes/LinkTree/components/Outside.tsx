@@ -16,8 +16,8 @@ type SceneProps = {
 const Outside = (props: SceneProps) => {
   const {
     color,
-    wSegments = 200,
-    hSegments = 200,
+    wSegments = 700,
+    hSegments = 700,
     position = [0, 0, 0],
     map = "mountain",
     hScale = 10,
@@ -37,7 +37,6 @@ const Outside = (props: SceneProps) => {
       len = len % 2 === 0 ? len + 1 : len;
       const min = -Math.floor(len / 2);
       const max = min + (len - 1);
-      console.log(len, min, max);
       for (let x = min; x < max; x++) {
         for (let z = min; z < max; z++) {
           dummy.position.set(x * xzScale, 0, z * xzScale);
