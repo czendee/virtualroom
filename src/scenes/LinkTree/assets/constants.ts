@@ -46,6 +46,13 @@ export const keyframes: Keyframe[] = [
     label: "1",
   },
   {
+    position: linkPositions[0].p
+      .clone()
+      .add(new Vector3(-(DIST + 2), 0, 1.5))
+      .multiplyScalar(1 / SCALE),
+    label: "socials",
+  },
+  {
     position: linkPositions[2].p
       .clone()
       .add(new Vector3(-DIST, 0, 0))
@@ -72,12 +79,5 @@ export const keyframes: Keyframe[] = [
       .add(new Vector3(DIST, 0, 0))
       .multiplyScalar(1 / SCALE),
     label: "4",
-  },
-  {
-    position: linkPositions[0].p
-      .clone()
-      .add(new Vector3(-(DIST + 1), 0, 1))
-      .multiplyScalar(1 / SCALE),
-    label: "socials",
   },
 ];
