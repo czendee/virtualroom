@@ -16,8 +16,8 @@ type SceneProps = {
 const Outside = (props: SceneProps) => {
   const {
     color,
-    wSegments = 1000,
-    hSegments = 1000,
+    wSegments = 200,
+    hSegments = 200,
     position = [0, 0, 0],
     map = "mountain",
     hScale = 10,

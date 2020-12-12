@@ -11,101 +11,58 @@ import { DRACO_URL } from "spacesvr";
 
 type GLTFResult = GLTF & {
   nodes: {
-    floor: THREE.Mesh;
-    walls: THREE.Mesh;
-    celling: THREE.Mesh;
+    structure: THREE.Mesh;
+    middleSupports: THREE.Mesh;
+    metal: THREE.Mesh;
     glass: THREE.Mesh;
-    skylight: THREE.Mesh;
-    windows: THREE.Mesh;
-    beams: THREE.Mesh;
-    concrete_walls: THREE.Mesh;
-    doors: THREE.Mesh;
-    ventmat: THREE.Mesh;
   };
   materials: {
-    ["floor.mat"]: THREE.MeshStandardMaterial;
-    ["walls.mat"]: THREE.MeshStandardMaterial;
-    ["ceiling.mat"]: THREE.MeshStandardMaterial;
-    ["glass.mat"]: THREE.MeshStandardMaterial;
-    ["skylight.mat"]: THREE.MeshStandardMaterial;
-    ["windows.mat"]: THREE.MeshStandardMaterial;
-    ["beams.mat"]: THREE.MeshStandardMaterial;
-    ["concrete_walls.mat"]: THREE.MeshStandardMaterial;
-    ["doors.mat"]: THREE.MeshStandardMaterial;
-    ["vent.mat"]: THREE.MeshStandardMaterial;
+    structure: THREE.MeshStandardMaterial;
+    metal: THREE.MeshStandardMaterial;
+    glass: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/structure0-1607582925/structure_00.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Structure-1607759921/structure_01.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
-  materials["glass.mat"].metalness = 1;
-  materials["glass.mat"].roughness = 0;
-  materials["glass.mat"].transparent = false;
-  materials["skylight.mat"].metalness = 1;
-  materials["skylight.mat"].roughness = 0;
-  materials["skylight.mat"].transparent = false;
-
-  materials["vent.mat"].metalness = 0.87;
-  materials["vent.mat"].roughness = 0.22;
-  materials["windows.mat"].metalness = 0.87;
-  materials["windows.mat"].roughness = 0.22;
+  // materials["glass.mat"].metalness = 1;
+  // materials["glass.mat"].roughness = 0;
+  // materials["glass.mat"].transparent = false;
+  // materials["skylight.mat"].metalness = 1;
+  // materials["skylight.mat"].roughness = 0;
+  // materials["skylight.mat"].transparent = false;
+  //
+  // materials["vent.mat"].metalness = 0.87;
+  // materials["vent.mat"].roughness = 0.22;
+  // materials["windows.mat"].metalness = 0.87;
+  // materials["windows.mat"].roughness = 0.22;
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group>
         <mesh
-          name="floor"
-          material={materials["floor.mat"]}
-          geometry={nodes.floor.geometry}
+          name="structure"
+          material={materials.structure}
+          geometry={nodes.structure.geometry}
         />
         <mesh
-          name="walls"
-          material={materials["walls.mat"]}
-          geometry={nodes.walls.geometry}
+          name="middleSupports"
+          material={materials.structure}
+          geometry={nodes.middleSupports.geometry}
         />
         <mesh
-          name="celling"
-          material={materials["ceiling.mat"]}
-          geometry={nodes.celling.geometry}
+          name="metal"
+          material={materials.metal}
+          geometry={nodes.metal.geometry}
         />
         <mesh
           name="glass"
-          material={materials["glass.mat"]}
+          material={materials.glass}
           geometry={nodes.glass.geometry}
-        />
-        <mesh
-          name="skylight"
-          material={materials["skylight.mat"]}
-          geometry={nodes.skylight.geometry}
-        />
-        <mesh
-          name="windows"
-          material={materials["windows.mat"]}
-          geometry={nodes.windows.geometry}
-        />
-        <mesh
-          name="beams"
-          material={materials["beams.mat"]}
-          geometry={nodes.beams.geometry}
-        />
-        <mesh
-          name="concrete_walls"
-          material={materials["concrete_walls.mat"]}
-          geometry={nodes.concrete_walls.geometry}
-        />
-        <mesh
-          name="doors"
-          material={materials["doors.mat"]}
-          geometry={nodes.doors.geometry}
-        />
-        <mesh
-          name="ventmat"
-          material={materials["vent.mat"]}
-          geometry={nodes.ventmat.geometry}
         />
       </group>
     </group>

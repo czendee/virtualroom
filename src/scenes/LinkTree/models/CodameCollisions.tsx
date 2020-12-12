@@ -15,7 +15,7 @@ type GLTFResult = GLTF & {
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/CodameCollisions-1607681754/collider.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/CodameCollisions-1607761000/collider.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
