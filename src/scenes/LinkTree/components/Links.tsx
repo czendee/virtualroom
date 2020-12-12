@@ -1,6 +1,6 @@
 // @ts-ignore
 import Link from "./Link";
-import { Vector3 } from "three";
+import { linkPositions } from "../assets/constants";
 
 type LinksProps = {
   links: {
@@ -12,33 +12,6 @@ type LinksProps = {
   font?: string;
 };
 
-const places = [
-  {
-    p: new Vector3(-5.5, 4, 1),
-    r: Math.PI / 2,
-  },
-  {
-    p: new Vector3(-6.5, 4, 1),
-    r: -Math.PI / 2,
-  },
-  {
-    p: new Vector3(-5.5, 4, 17),
-    r: Math.PI / 2,
-  },
-  {
-    p: new Vector3(-6.5, 4, 17),
-    r: -Math.PI / 2,
-  },
-  {
-    p: new Vector3(-5.5, 4, 33),
-    r: Math.PI / 2,
-  },
-  {
-    p: new Vector3(-6.5, 4, 1),
-    r: -Math.PI / 2,
-  },
-];
-
 const linkArr: any = [];
 
 const Links = (props: LinksProps) => {
@@ -47,8 +20,8 @@ const Links = (props: LinksProps) => {
   for (let i = 0; i < links.length; i++) {
     linkArr.push(
       <Link
-        position={places[i].p}
-        rotY={places[i].r}
+        position={linkPositions[i].p}
+        rotY={linkPositions[i].r}
         text={links[i].desc}
         color={color}
         font={font}

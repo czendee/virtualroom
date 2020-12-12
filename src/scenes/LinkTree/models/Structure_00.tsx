@@ -44,11 +44,9 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   materials["glass.mat"].metalness = 1;
   materials["glass.mat"].roughness = 0;
   materials["glass.mat"].transparent = false;
-  materials["glass.mat"].opacity = 0.4;
   materials["skylight.mat"].metalness = 1;
   materials["skylight.mat"].roughness = 0;
   materials["skylight.mat"].transparent = false;
-  materials["skylight.mat"].opacity = 0.4;
 
   materials["vent.mat"].metalness = 0.87;
   materials["vent.mat"].roughness = 0.22;
