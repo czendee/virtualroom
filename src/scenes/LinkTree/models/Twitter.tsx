@@ -7,6 +7,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei/useGLTF";
 
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { DRACO_URL } from "spacesvr/services/constants";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -26,7 +27,7 @@ const FILE_URL =
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
+  const { nodes, materials } = useGLTF(FILE_URL, DRACO_URL) as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
       <group>
@@ -50,4 +51,4 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload(FILE_URL);
+useGLTF.preload(FILE_URL, DRACO_URL);
