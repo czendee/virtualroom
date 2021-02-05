@@ -1,7 +1,8 @@
 import { useAnalytics } from "services/analytics";
 import { StandardEnvironment, Background, Fog } from "spacesvr";
 import { Vector3 } from "three";
-import Structure from "./models/00";
+import Structure from "./models/Outdoor_02";
+import { Sky } from "@react-three/drei";
 import * as THREE from "three";
 
 const Starter = () => {
@@ -11,12 +12,13 @@ const Starter = () => {
 
   return (
     <StandardEnvironment player={{ pos: INITIAL_POSITION }}>
-      <Background color={0x000000} />
-      {/* <ambientLight intensity={1} />
-      <pointLight intensity={1} position={[0.5, 0.5, 0]} /> */}
+      <Background color={0xffffff} />
+      <ambientLight intensity={1} />
+      {/* <pointLight intensity={1} position={[0.5, 0.5, 0]} /> */}
       {/* <DisplacementMap /> */}
       {/* <Fog color={new THREE.Color(0x000000)} near={0} far={200} /> */}
       <Structure />
+      <Sky />
     </StandardEnvironment>
   );
 };
