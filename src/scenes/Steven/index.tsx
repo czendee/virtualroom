@@ -1,7 +1,7 @@
 import { useAnalytics } from "services/analytics";
 import { StandardEnvironment, Background, Fog } from "spacesvr";
 import { Vector3 } from "three";
-import Structure from "./models/Outdoor_02";
+import Structure from "./models/Indoor_01";
 import { Sky } from "@react-three/drei";
 import * as THREE from "three";
 
