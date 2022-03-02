@@ -8,7 +8,7 @@
 
 Gitpod will automatically setup an environment and run an instance for you.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/czendee/virtualroom/tree/3dtext)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/czendee/virtualroom/tree/button/3dtext)
 
 
 
